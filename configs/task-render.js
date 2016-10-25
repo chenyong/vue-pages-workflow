@@ -28,11 +28,27 @@ module.exports = function(cb) {
   pageList.forEach(function(address) {
     router.push(address);
     renderer.renderToString(app, function(err, appHtml) {
-      var html, htmlPath;
       if (err != null) {
         throw err;
       } else {
-        console.log(appHtml)
+        var template = fs.readFileSync('./configs/index.html', 'utf8');
+        var entry1 = '<meta id="entry-1"/>';
+        var entry2 = '<meta id="entry-2"/>';
+        var appMarkup = '<div id="app"></div>';
+        var assets = JSON.parse(fs.readFileSync('./build/assets.json'));
+        var initialData = JSON.stringify(store.state)
+          .replace(/"/g, "&quot;");
+        var html = template
+          .replace(entry1,
+            `<link rel="stylesheet" href="${assets.main[1]}" />
+            <meta id="store" content="${initialData}" />`
+          )
+          .replace(entry2,
+            `<script src="${assets.vendor}"></script>
+             <script src="${assets.main[0]}"></script>`
+          )
+          .replace(appMarkup, appHtml)
+        fs.writeFileSync(`./build/${address}`, html);
         // html = template.render(appHtml, store.state, settings);
         // htmlPath = path.join('build', address);
         // console.log('render entry:', htmlPath);
