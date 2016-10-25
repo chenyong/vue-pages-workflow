@@ -38,6 +38,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor'),
     new ExtractTextPlugin('[name].[hash:8].css'),
+    new webpack.optimize.UglifyJsPlugin(),
     function() {
       this.plugin("done", function(stats) {
         var content = JSON.stringify(stats.toJson().assetsByChunkName);

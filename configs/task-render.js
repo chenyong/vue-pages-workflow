@@ -44,16 +44,11 @@ module.exports = function(cb) {
             <meta id="store" content="${initialData}" />`
           )
           .replace(entry2,
-            `<script src="${assets.vendor}"></script>
-             <script src="${assets.main[0]}"></script>`
+            `<script src="/${assets.vendor}"></script>
+             <script src="/${assets.main[0]}"></script>`
           )
           .replace(appMarkup, appHtml)
         fs.writeFileSync(`./build/${address}`, html);
-        // html = template.render(appHtml, store.state, settings);
-        // htmlPath = path.join('build', address);
-        // console.log('render entry:', htmlPath);
-        // mkpath.sync(path.dirname(htmlPath));
-        // fs.writeFileSync(htmlPath, html);
       }
     });
   });
