@@ -9,6 +9,10 @@ export default new VueRouter({
   base: __dirname,
   routes: [
     {
+      path: '/index.html',
+      component: Home
+    },
+    {
       path: '/',
       component: Home
     }, {
