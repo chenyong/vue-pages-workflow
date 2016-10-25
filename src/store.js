@@ -7,10 +7,10 @@ var state = {
 
 var mutations = {
   increment: function(state) {
-    return state.count = state.count + 1;
+    state.count = state.count + 1;
   },
   decrement: function(state) {
-    return state.count = state.count - 1;
+    state.count = state.count - 1;
   }
 };
 
@@ -21,15 +21,11 @@ var getters = {
 };
 
 var actions = {
-  inc: function(_arg) {
-    var commit;
-    commit = _arg.commit;
-    return commit('increment');
+  inc: function({commit}) {
+    commit('increment');
   },
-  dec: function(_arg) {
-    var commit;
-    commit = _arg.commit;
-    return commit('increment');
+  dec: function(commit) {
+    commit('increment');
   }
 };
 

@@ -20,10 +20,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.vue', '.js']
-  },
-  babel: {
-    presets: ['es2015']
+    extensions: ['.js', '.vue',]
   },
   plugins: []
 };

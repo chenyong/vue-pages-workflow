@@ -19,10 +19,10 @@ module.exports = function(cb) {
   // this file requires compilation
   var app = require('../build/app').default;
 
+  // grab store and router from private APIs
   var store = app.$store;
   var router = app._router;
-
-  console.log(store, router);
+  // console.log(store, router);
   Vue.use(VueRouter);
 
   pageList.forEach(function(address) {

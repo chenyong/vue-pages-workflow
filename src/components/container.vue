@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<style>
+  body {
+    font-family: Verdana, sans-serif;
+  }
+</style>
+
 <script>
   import Home from './home';
   import About from './about';
