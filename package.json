@@ -24,7 +24,8 @@
     "style-loader": "^0.13.1",
     "vue-loader": "^9.7.0",
     "vue-server-renderer": "^2.0.3",
-    "webpack": "^2.1.0-beta.25"
+    "webpack": "^2.1.0-beta.25",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
     "vue": "^2.0.3",

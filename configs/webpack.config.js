@@ -1,20 +1,19 @@
 
 module.exports = {
   entry: {
-    style: './src/main.css',
-    main: './src/main.coffee'
+    main: './src/main'
   },
   output: {
     filename: '[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {test: /\.css$/, loader: 'style!css'},
       {test: /\.vue$/, loader: 'vue'},
       {test: /\.js$/, loader: 'babel'}
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '']
+    extensions: ['.js', '.vue']
   }
 };

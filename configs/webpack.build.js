@@ -1,31 +1,42 @@
 
 var fs = require('fs');
+var webpack = require('webpack');
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    style: './src/assets/main.css',
-    main: './src/main'
+    main: './src/main',
+    vendor: ['vue', 'vue-router', 'vuex']
   },
   output: {
     path: 'build/',
     filename: '[name].[hash:8].js'
   },
   module: {
-    loaders: [
-      {test: /\.vue$/, loader: 'vue'},
+    rules: [
+      {test: /\.vue$/, loader: 'vue',
+        options: {
+          loaders: {
+            css: ExtractTextPlugin.extract({
+              fallbackLoader: 'style-loader',
+              loader: 'css-loader'
+              })
+          }
+        }
+      },
+      {test: /\.js$/, loader: 'babel'},
       {test: /\.css$/, loader: ExtractTextPlugin.extract({
         fallbackLoader: 'style-loader',
         loader: 'css-loader'
       })},
-      {test: /\.js$/, loader: 'babel'},
     ]
   },
   resolve: {
-    extensions: ['.vue', '.js']
+    extensions: ['.js', '.vue']
   },
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
     new ExtractTextPlugin('[name].[hash:8].css'),
     function() {
       this.plugin("done", function(stats) {

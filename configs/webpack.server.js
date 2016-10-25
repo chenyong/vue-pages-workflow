@@ -13,7 +13,7 @@ module.exports = {
   },
   externals: Object.keys(require('../package.json').dependencies),
   module: {
-    loaders: [
+    rules: [
       {test: /\.vue$/, loader: 'vue', options: {}},
       {test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/},
       {test: /\.css$/, loader: 'style!css'}
