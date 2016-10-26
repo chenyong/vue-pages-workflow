@@ -32,12 +32,16 @@ Using Vue 2 to render Vue app in Node.js or more specificly Gulp.
 
 Using Webpack 2 since Vue 2 write docs in it.
 
+* run in dev mode
+
 To start app in development environment:
 
 ```bash
 make dev
 # load build/index.html in a browser, Nginx suggested
 ```
+
+* run in build mode
 
 To build the app:
 
@@ -46,6 +50,16 @@ make build
 # see build/ for compiled files
 # load build/index.html in a browser, make sure the path is `/`
 ```
+
+* add pages
+
+To add pages, you have to make sure it works on both scenarios.
+
+* For client routing, add new router in `src/router.js` with a component.
+* For routing on Nginx, add the path to `configs/pages-list.js` to generate an HTML file.
+
+Make sure the names are consistent and ends with `.html`,
+so that Nginx will resolve the file correctly and vue-router also will recognize.
 
 ### License
 
