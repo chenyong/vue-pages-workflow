@@ -13,10 +13,7 @@ import store from './store';
 export default new Vue({
   router: router,
   store: store,
-  components: {
-    container: Container
-  },
   render: function(h) {
-    return h('container', {});
+    return h(Container, {});
   }
 });

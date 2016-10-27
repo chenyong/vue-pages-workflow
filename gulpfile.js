@@ -28,5 +28,5 @@ gulp.task('dev-html', function(cb) {
     .replace(entry2,
       `<script src="http://localhost:8080/main.js"></script>`
     );
-  fs.writeFileSync(`./build/${address}`, html);
+  fs.writeFileSync(`./build/index.html`, html);
 });
